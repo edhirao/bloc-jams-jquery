@@ -14,7 +14,7 @@ class Player {
     return this.soundObject.getTime();
   }
   
-  playPause (song = this.currentlyPlaying) {
+  playPause(song = this.currentlyPlaying) {
     if (this.currentlyPlaying !== song) {
       // Stop the currently playing sound file (even if nothing is playing)
       this.soundObject.stop();
@@ -46,6 +46,12 @@ class Player {
   setVolume (percent) {
     this.volume = percent;
     this.soundObject.setVolume(percent);
+  }
+
+  prettyTime(timeInSeconds){
+    const seconds = parseFloat(timeInSeconds);
+    const minutes = (Math.floor(seconds/60));
+    return minutes + ":" + seconds;
   }
 }
 
